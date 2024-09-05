@@ -1,0 +1,26 @@
+CREATE TABLE cliente (
+	cod int unique ,
+	nome varchar(40),
+	cidade varchar (30),
+	estado char(2),
+	idade int ,
+	constraint pk_cliente primary key (cod)  
+
+); 
+
+--VARCHAR x CHAR varchar e mais lento porem so oculpa o espaço necessario da memoria ja o char utiliza todo o espaco 
+-- fornecido
+
+
+SELECT * FROM cliente;
+
+insert into cliente values(
+'1','Beatriz','São Paulo','SP',21
+);
+
+DROP TABLE cliente;
+
+--no codigo SELECT, voce pode determinar quais campos podem ser pesquisados 
+--so tirar o * e colocar os nomes dos campos 
+
+select nome,estado from cliente;

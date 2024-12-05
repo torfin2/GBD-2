@@ -1,5 +1,5 @@
 --(TRIGGER) GATILHO E UM TIPO DE CODIGO 
---QUE DISPARA UM CONJUNTO DE AC’ES PRE DEFINIDAS PARA ISSO VC CRIA UMA FUN«√O E EM SEGUIDA A CONFIGURA ELES S√O USADOS NO INSERT UPDATE E DELETE 
+--QUE DISPARA UM CONJUNTO DE AC√ïES PRE DEFINIDAS PARA ISSO VC CRIA UMA FUN√á√ÉO E EM SEGUIDA A CONFIGURA ELES S√ÉO USADOS NO INSERT UPDATE E DELETE 
 
 create table cliente(
 id int primary key ,
@@ -23,3 +23,4 @@ create trigger cliente_gatilho before
 insert or update on cliente 
 for each row execute procedure
 cliente_gatilho();
+

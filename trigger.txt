@@ -1,0 +1,25 @@
+--(TRIGGER) GATILHO E UM TIPO DE CODIGO 
+--QUE DISPARA UM CONJUNTO DE ACÕES PRE DEFINIDAS PARA ISSO VC CRIA UMA FUNÇÃO E EM SEGUIDA A CONFIGURA ELES SÃO USADOS NO INSERT UPDATE E DELETE 
+
+create table cliente(
+id int primary key ,
+	nome text,
+	idade int 
+); 
+
+
+CREATE FUNCTION cliente_gatilho()
+returns trigger as $cliente_gatilho$
+begin 
+if new.nome is null then 
+	raise exception 
+	  'O nome n foi informado! ';
+	  end if ;
+	  return new;
+	  end ;
+$cliente_gatilho$ language plpgsql;
+
+create trigger cliente_gatilho before
+insert or update on cliente 
+for each row execute procedure
+cliente_gatilho();
